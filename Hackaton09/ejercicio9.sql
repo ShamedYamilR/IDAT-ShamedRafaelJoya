@@ -1,0 +1,2 @@
+--Muestra el nombre del producto y la cantidad vendida de todos los productos que tengan una cantidad vendida superior a 100.
+SELECT nombre_producto, cantidad_vendida FROM productos WHERE cantidad_vendida > 100;
