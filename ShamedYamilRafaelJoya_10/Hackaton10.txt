@@ -1,0 +1,98 @@
+1.Insertar un documento en una colección llamada "usuarios".
+
+ db.usuarios.insert({
+  nombre: "Benito Juarez",
+  edad: 10,
+  correo: "benito.juarez@gmail.com"
+ })
+
+2.Insertar varios documentos en la colección "usuarios".
+ 
+db.usuarios.insertMany([
+  { nombre: "Susan Graciano", edad: 40, correo: "susan.graciano@gmail.com" , ciudad: "Ciudad A"},
+
+  { nombre: "Amelia Chavez", edad: 25, correo: "amelia.chavez@gmail.com", ciudad: "Ciudad B" },
+
+  { nombre: "Freddy Arca", edad: 34, correo: "freddy.arca@gmail.com", ciudad:"Ciudad A" },
+
+  { nombre: "Johana Perez", edad: 35, correo: "johana.perez@gmail.com", ciudad:"Ciudad B" }
+
+ ])
+
+3.Actualizar el campo "edad" del documento con nombre "Susan" en la colección "usuarios".
+ 
+ db.usuarios.updateMany(
+  { nombre: "Susan Graciano" },
+  { $set: { edad: 28 } }
+ )
+
+4.Actualizar varios documentos en la colección "usuarios" que cumplan cierta condición.
+
+db.usuarios.updateMany(
+  { edad: { $gt: 30 } },
+  { $set: { edad: 28 } }
+  )
+
+5.Eliminar un documento con nombre "Johana" de la colección "usuarios".
+ 
+db.usuarios.deleteOne({ nombre: "Johana" })
+
+6.Eliminar varios documentos de la colección "usuarios" que cumplan cierta condición.
+
+db.usuarios.deleteMany({ edad: { $gt: 30 } })
+
+7.Buscar todos los documentos en la colección "usuarios".
+
+db.usuarios.find()
+
+8.Buscar un documento con nombre "Benito" en la colección "usuarios".
+
+db.usuarios.find({ nombre: "Benito" })
+
+9.Buscar documentos en la colección "usuarios" que cumplan cierta condición (por ejemplo, edad mayor a 25).
+
+db.usuarios.find({ edad: { $gt: 25 } })
+
+10.Buscar documentos en la colección "usuarios" con proyección (solo mostrar el campo "nombre").
+
+db.usuarios.find({}, { nombre: 1, _id: 0 })
+
+11.Buscar documentos en la colección "usuarios" ordenados por edad de forma ascendente.
+
+db.usuarios.find().sort({ edad: 1 })
+
+12.Buscar documentos en la colección "usuarios" limitando el número de resultados a 5.
+
+db.usuarios.find().limit(5)
+
+13.Buscar documentos en la colección "usuarios" utilizando expresiones regulares (por ejemplo, buscar nombres que empiecen con "J").
+
+db.usuarios.find({ nombre: { $regex: /^J/ } })
+
+14.Contar la cantidad de documentos en la colección "usuarios".
+
+db.usuarios.countDocuments()
+
+15.Contar la cantidad de documentos en la colección "usuarios" que cumplan cierta condición.
+
+db.usuarios.countDocuments({ edad: { $gt: 30 } })
+
+16.Agregar un nuevo campo "activo" con valor booleano a todos los documentos de la colección "usuarios".
+
+db.usuarios.updateMany({}, { $set: { activo: true } })
+
+17.Ordenar los documentos en la colección "usuarios" por nombre en orden descendente.
+
+db.usuarios.find().sort({ nombre: -1 })
+
+18.Buscar documentos en la colección "usuarios" que tengan una lista de ciudades específicas.
+
+db.usuarios.find({ ciudad: { $in: ["Ciudad A", "Ciudad B"] } })
+
+19.Actualizar un campo en todos los documentos de la colección "usuarios" utilizando un valor incremental.
+
+db.usuarios.updateMany({}, { $inc: { contador: 1 } })
+
+20.Eliminar todos los documentos de la colección "usuarios".
+
+db.usuarios.deleteMany({})
