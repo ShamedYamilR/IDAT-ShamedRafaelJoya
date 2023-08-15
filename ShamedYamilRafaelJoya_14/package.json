@@ -1,0 +1,17 @@
+{
+  "name": "hackaton12",
+  "version": "1.0.0",
+  "description": "- Crear una app sencilla con express y mongoose.\r - Generar un CRUD a una entiedad. Ejm: usuarios, productos, categorias, etc.",
+  "main": "index.js",
+  "scripts": {
+  "test": "echo \"Error no test specified\" && exit 1",
+  "start": "nodemon.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "expres": "^4.18.2",
+    "mongoose": "^7.4.1"
+  }
+}
